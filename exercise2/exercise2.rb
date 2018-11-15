@@ -1,9 +1,9 @@
 # Exercise 0
 colours = ["red", "green", "blue", "orange", "purple", "yellow"]
-ages = [37, 39, 20, 19, 24]
+ages = [37, 39, 20, 19]
 coinflip = [true, true, false, true, false, false]
 artists = ["Cryptopsy", "Hitomi Uehara", "Oscar Peterson"]
-colours = [:red, :green, :blue, :orange, :purple, :yellow]
+colours_keys = [:red, :green, :blue, :orange, :purple, :yellow]
 
 words = {
     dog: "Not a cat",
@@ -311,4 +311,58 @@ puts show_cohorts_staff(staff)
 puts count_all_students(staff)
 puts "-----"
 
-# After you're done, be sure you have committed and pushed everything to your Github repo.
+# Exercise 11
+nums=(1... 101)
+output = []
+for num in nums
+    if num % 3 != 0 && num % 5 != 0
+        output.push(num)
+    elsif num % 3 == 0 && num % 5 != 0
+        output.push("Bit")
+    elsif num % 3 != 0 && num % 5 == 0
+        output.push("Maker")
+    else 
+        output.push("BitMaker")
+    end
+end
+puts output
+puts "-----"
+
+
+# Exercise 12
+puts "How many pizzas do you want?"
+print "> "
+quantity = gets.chomp.to_i
+pizza_number = 1
+
+while quantity > 0 do
+    puts "How many toppings for pizza #{pizza_number}?"
+    print "> "
+    topping_number = gets.chomp.to_i
+    puts "You have ordered a pizza with #{topping_number} toppings"
+    quantity -= 1
+    pizza_number += 1
+end
+
+# # Stretch Exercise 1
+
+# Make a new array that consists of all the elements of your fav_colours and fav_artists arrays. Then sort the array and output it.
+puts "-----" 
+colours_and_artists = colours.concat(artists).map {|item| item.capitalize}
+puts colours_and_artists.sort
+puts "-----" 
+for artist in artists
+    for age in ages
+        puts "I <3 #{artist} #{age}"
+    end
+end
+puts "-----" 
+ages_plus_one = ages.map{|age| age += 1}
+puts ages_plus_one.inspect
+puts "-----" 
+summed_ages = ages.reduce(:+)
+puts "The sum of our ages is #{summed_ages}."
+puts "-----" 
+heads_only = coinflip.select{|item|item == true}
+puts heads_only
+
