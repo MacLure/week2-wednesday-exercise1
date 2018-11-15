@@ -59,7 +59,7 @@ def get_letter
     score = gets.chomp.to_i
 
     grades = {
-        F: (0 ... 49),
+        :F+ (0 ... 49),
         D: (50 ... 59),
         C: (60 ... 69),
         B: (70 ... 79),
